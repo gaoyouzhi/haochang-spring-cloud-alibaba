@@ -1,0 +1,23 @@
+server:
+  port: 9030
+
+spring:
+  application:
+    name: haochang-nacos-consumer-feign
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 127.0.0.1:8848
+  sentinel:
+      transport:
+        dashboard: localhost:8080
+
+feign:
+  sentinel:
+    enabled: true
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"

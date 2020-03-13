@@ -1,0 +1,17 @@
+spring:
+  application:
+    name: haochang-nacos-provider
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 127.0.0.1:8848
+
+
+server:
+  port: 9021
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
