@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 /**
  * @description: 描述：nacos Provider 测试熔断
- * @author: youzhi.gao@ikang.com
+ * @author: youzhi.gao
  * @date: 2020-03-13 09:29
  */
 @RestController

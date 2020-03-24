@@ -7,7 +7,7 @@ import org.springframework.cloud.openfeign.EnableFeignClients;
 
 /**
  * @description: 描述：网关启动类
- * @author: youzhi.gao@ikang.com
+ * @author: youzhi.gao
  * @date: 2020-03-20 15:29
  */
 @SpringBootApplication

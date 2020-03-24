@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 /**
  * @description: 描述：处理订单controller
- * @author: youzhi.gao@ikang.com
+ * @author: youzhi.gao
  * @date: 2020-03-13 12:32
  */
 @RestController

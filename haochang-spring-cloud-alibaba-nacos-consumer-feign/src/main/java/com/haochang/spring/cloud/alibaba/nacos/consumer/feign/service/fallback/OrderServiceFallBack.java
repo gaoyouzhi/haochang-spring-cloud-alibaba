@@ -6,7 +6,7 @@ import org.springframework.stereotype.Component;
 
 /**
  * @description: 描述：orderService 熔断器
- * @author: youzhi.gao@ikang.com
+ * @author: youzhi.gao
  * @date: 2020-03-13 12:31
  */
 @Component

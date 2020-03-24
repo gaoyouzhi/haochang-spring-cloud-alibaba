@@ -4,7 +4,7 @@ import org.apache.commons.lang.StringUtils;
 
 /**
  * @description: 描述：string test
- * @author: youzhi.gao@ikang.com
+ * @author: youzhi.gao
  * @date: 2020-03-13 17:58
  */
 public class StringTest {

@@ -5,7 +5,7 @@ import org.springframework.stereotype.Component;
 
 /**
  * @description: 描述：熔断service
- * @author: youzhi.gao@ikang.com
+ * @author: youzhi.gao
  * @date: 2020-03-13 09:31
  */
 @Component

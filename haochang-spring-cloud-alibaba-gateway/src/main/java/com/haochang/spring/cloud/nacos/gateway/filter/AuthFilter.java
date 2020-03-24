@@ -17,7 +17,7 @@ import java.util.Map;
 
 /**
  * @description: 描述：权限过滤
- * @author: youzhi.gao@ikang.com
+ * @author: youzhi.gao
  * @date: 2020-03-20 17:39
  */
 @Component

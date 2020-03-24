@@ -4,7 +4,7 @@ import java.io.Serializable;
 
 /**
  * @description: 描述：订单实体
- * @author: youzhi.gao@ikang.com
+ * @author: youzhi.gao
  * @date: 2020-03-13 12:26
  */
 public class Order implements Serializable {

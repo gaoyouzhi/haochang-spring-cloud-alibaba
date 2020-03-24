@@ -11,7 +11,7 @@ import org.springframework.web.client.RestTemplate;
 
 /**
  * @description: 描述：nacos 消费者控制器
- * @author: youzhi.gao@ikang.com
+ * @author: youzhi.gao
  * @date: 2020-03-12 15:02
  */
 @RestController

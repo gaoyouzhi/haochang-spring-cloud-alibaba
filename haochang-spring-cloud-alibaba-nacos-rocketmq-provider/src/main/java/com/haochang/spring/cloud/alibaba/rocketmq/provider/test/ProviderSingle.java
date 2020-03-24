@@ -7,7 +7,7 @@ import org.apache.rocketmq.remoting.common.RemotingHelper;
 
 /**
  * @description: 描述：单机mq测试
- * @author: youzhi.gao@ikang.com
+ * @author: youzhi.gao
  * @date: 2020-03-24 09:42
  */
 public class ProviderSingle {

@@ -11,7 +11,7 @@ import org.springframework.messaging.support.MessageBuilder;
 
 /**
  * @description: 描述：rocketmq 服务者启动类
- * @author: youzhi.gao@ikang.com
+ * @author: youzhi.gao
  * @date: 2020-03-23 09:48
  */
 @SpringBootApplication
