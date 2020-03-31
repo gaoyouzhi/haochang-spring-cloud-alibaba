@@ -19,7 +19,7 @@ import org.springframework.stereotype.Component;
 import javax.annotation.Resource;
 import java.io.IOException;
 
-@Component
+//@Component
 public class MQConsumer {
     private static final Logger logger = LoggerFactory.getLogger(MQConsumer.class);
 

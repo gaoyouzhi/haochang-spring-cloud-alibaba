@@ -15,7 +15,7 @@ import java.io.IOException;
  * 管理当前线程使用的Rabbitmq通道.
  * 使用了ThreadLocal
  */
-@Component
+//@Component
 public class MQChannelManager {
     private static final Logger logger = LoggerFactory.getLogger(MQChannelManager.class);
 

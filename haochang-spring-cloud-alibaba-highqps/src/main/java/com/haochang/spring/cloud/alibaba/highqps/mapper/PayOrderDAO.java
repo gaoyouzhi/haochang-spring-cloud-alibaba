@@ -1,10 +1,14 @@
-package com.haochang.spring.cloud.alibaba.highqps.dao;
+package com.haochang.spring.cloud.alibaba.highqps.mapper;
 
 import com.haochang.spring.cloud.alibaba.highqps.model.PayOrder;
+import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
+import org.springframework.stereotype.Repository;
 
 import java.util.Date;
 
+@Mapper
+@Repository
 public interface PayOrderDAO {
 
     /**

@@ -18,7 +18,8 @@ public class MyRuntimeSchema {
         setGoodsRuntimeSchema(seckillSchemaVar);
     }
 
-    public RuntimeSchema<Seckill> getGoodsRuntimeSchema() {
+    public RuntimeSchema<Seckill>
+    getGoodsRuntimeSchema() {
         return goodsRuntimeSchema;
     }
 

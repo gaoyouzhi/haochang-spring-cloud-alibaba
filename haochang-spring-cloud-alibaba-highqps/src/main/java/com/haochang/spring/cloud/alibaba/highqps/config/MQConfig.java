@@ -18,7 +18,7 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.concurrent.TimeoutException;
 
-@Configuration
+//@Configuration
 public class MQConfig {
     private static final Logger logger = LoggerFactory.getLogger(MQConfig.class);
 

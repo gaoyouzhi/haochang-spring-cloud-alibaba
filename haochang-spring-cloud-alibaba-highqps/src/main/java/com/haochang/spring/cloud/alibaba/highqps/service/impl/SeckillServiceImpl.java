@@ -2,8 +2,9 @@ package com.haochang.spring.cloud.alibaba.highqps.service.impl;
 
 import com.haochang.spring.cloud.alibaba.highqps.constant.RedisKey;
 import com.haochang.spring.cloud.alibaba.highqps.constant.RedisKeyPrefix;
-import com.haochang.spring.cloud.alibaba.highqps.dao.PayOrderDAO;
-import com.haochang.spring.cloud.alibaba.highqps.dao.SeckillDAO;
+import com.haochang.spring.cloud.alibaba.highqps.mapper.PayOrderDAO;
+import com.haochang.spring.cloud.alibaba.highqps.mapper.SeckillDAO;
+import com.haochang.spring.cloud.alibaba.highqps.dao.cache.RedisDAO;
 import com.haochang.spring.cloud.alibaba.highqps.distlock.CuratorClientManager;
 import com.haochang.spring.cloud.alibaba.highqps.enums.SeckillStateEnum;
 import com.haochang.spring.cloud.alibaba.highqps.exception.SeckillException;
@@ -40,13 +41,13 @@ public class SeckillServiceImpl implements SeckillService {
     private PayOrderDAO payOrderDAO;
     @Autowired
     private RedisUtil redisUtil;
-//    @Autowired
-//    private RedisDAO redisDAO;
+    @Autowired
+    private RedisDAO redisDAO;
     @Autowired
     private AccessLimitService accessLimitService;
 
-    @Autowired
-    private MQProducer mqProducer;
+//    @Autowired
+//    private MQProducer mqProducer;
 //    @Resource(name = "initJedisPool")
 //    private JedisPool jedisPool;
 
@@ -61,11 +62,11 @@ public class SeckillServiceImpl implements SeckillService {
      */
     @Override
     public List<Seckill> getSeckillList() {
-//        List<Seckill> list = redisDAO.getAllGoods();
-//        if (list == null || list.size()<1) {
-//            list = seckillDAO.queryAll(0, 10);
-//            redisDAO.setAllGoods(list);
-//        }
+        List<Seckill> list = redisDAO.getAllGoods();
+        if (list == null || list.size()<1) {
+            list = seckillDAO.queryAll(0, 10);
+            redisDAO.setAllGoods(list);
+        }
         return null;
     }
 
@@ -79,7 +80,6 @@ public class SeckillServiceImpl implements SeckillService {
         // 优化点:缓存优化:超时的基础上维护一致性
         //1.访问Redis
         Seckill seckill = redisDAO.getSeckill(seckillId);
-        Seckill seckill = null;
         if (seckill == null) {
             //2.访问数据库
             seckill = seckillDAO.queryById(seckillId);
@@ -161,7 +161,7 @@ public class SeckillServiceImpl implements SeckillService {
             SeckillMsgBody msgBody = new SeckillMsgBody();
             msgBody.setSeckillId(seckillId);
             msgBody.setUserPhone(userPhone);
-            mqProducer.send(msgBody);
+//            mqProducer.send(msgBody);
 
             // 立即返回给客户端，说明秒杀成功了
             PayOrder payOrder = new PayOrder();
@@ -185,7 +185,7 @@ public class SeckillServiceImpl implements SeckillService {
         String inventoryKey = RedisKeyPrefix.SECKILL_INVENTORY + seckillId;
         String boughtKey = RedisKeyPrefix.BOUGHT_USERS + seckillId;
 
-        String inventoryStr = (String) redisUtil.get(inventoryKey);
+        String inventoryStr =  redisUtil.get(inventoryKey).toString();
         int inventory = Integer.valueOf(inventoryStr);
         if (inventory <= 0) {
             logger.info("handleInRedis SECKILLSOLD_OUT. seckillId={},userPhone={}", seckillId, userPhone);
