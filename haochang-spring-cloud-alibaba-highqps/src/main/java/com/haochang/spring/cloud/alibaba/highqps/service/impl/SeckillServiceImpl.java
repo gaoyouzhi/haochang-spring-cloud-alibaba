@@ -67,7 +67,7 @@ public class SeckillServiceImpl implements SeckillService {
             list = seckillDAO.queryAll(0, 10);
             redisDAO.setAllGoods(list);
         }
-        return null;
+        return list;
     }
 
     @Override

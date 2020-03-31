@@ -15,7 +15,7 @@ import java.util.List;
  * @author: youzhi.gao
  * @date: 2020-03-30 13:59
  */
-@FeignClient(fallback = GoodsFallBackServiceImpl.class)
+//@FeignClient(fallback = GoodsFallBackServiceImpl.class)
 @Service
 public class QpsServiceImpl implements QpsService {
 

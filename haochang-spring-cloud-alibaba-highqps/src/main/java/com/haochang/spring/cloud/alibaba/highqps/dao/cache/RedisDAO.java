@@ -5,19 +5,13 @@ import com.alibaba.fastjson.JSON;
 import com.haochang.spring.cloud.alibaba.highqps.constant.RedisKey;
 import com.haochang.spring.cloud.alibaba.highqps.constant.RedisKeyPrefix;
 import com.haochang.spring.cloud.alibaba.highqps.model.Seckill;
-import com.haochang.spring.cloud.alibaba.highqps.singleton.MyRuntimeSchema;
 import com.haochang.spring.cloud.alibaba.highqps.util.RedisUtil;
-import io.protostuff.LinkedBuffer;
-import io.protostuff.ProtostuffIOUtil;
-import io.protostuff.runtime.RuntimeSchema;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.autoconfigure.data.redis.RedisProperties.Jedis;
 import org.springframework.stereotype.Repository;
 import org.springframework.util.StringUtils;
 
-import javax.annotation.Resource;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
@@ -29,7 +23,7 @@ public class RedisDAO {
     @Autowired
     private RedisUtil redisUtil;
 
-    private RuntimeSchema<Seckill> schema = MyRuntimeSchema.getInstance().getGoodsRuntimeSchema();
+//    private RuntimeSchema<Seckill> schema = MyRuntimeSchema.getInstance().getGoodsRuntimeSchema();
 
     public Seckill getSeckill(long seckillId) {
         //redis操作逻辑
