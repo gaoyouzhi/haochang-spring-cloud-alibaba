@@ -1,4 +1,4 @@
-package com.haochang.spring.cloud.alibaba.rocketmq.provider.test;
+package com.haochang.spring.cloud.alibaba.rocketmq.provider.provider;
 
 import org.apache.rocketmq.client.producer.DefaultMQProducer;
 import org.apache.rocketmq.client.producer.SendResult;
