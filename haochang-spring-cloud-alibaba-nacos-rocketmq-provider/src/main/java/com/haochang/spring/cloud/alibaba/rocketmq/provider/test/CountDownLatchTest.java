@@ -21,7 +21,7 @@ public class CountDownLatchTest {
 
     /**
      * @Description 描述：测试countDownLatch
-     * @Author: youzhi.gao@ikang.com
+     * @Author: youzhi.gao@
      * @Date: 2020-05-07 17:26
      */
     private static void test2() throws Exception{
