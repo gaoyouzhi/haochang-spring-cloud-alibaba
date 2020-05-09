@@ -12,6 +12,10 @@ public class EmployeePlus extends Thread{
     private String employeeName;
     private CountDownLatch countDownLatch;
 
+    public EmployeePlus(){
+
+    }
+
     public EmployeePlus(long time, String employeeName, CountDownLatch countDownLatch){
         this.time = time;
         this.employeeName = employeeName;

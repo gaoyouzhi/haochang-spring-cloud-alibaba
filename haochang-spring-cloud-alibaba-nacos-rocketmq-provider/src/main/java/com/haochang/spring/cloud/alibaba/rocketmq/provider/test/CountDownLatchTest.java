@@ -3,6 +3,8 @@ package com.haochang.spring.cloud.alibaba.rocketmq.provider.test;
 import com.haochang.spring.cloud.alibaba.rocketmq.provider.model.Employee;
 import com.haochang.spring.cloud.alibaba.rocketmq.provider.model.EmployeePlus;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.concurrent.CountDownLatch;
 
 /**
@@ -13,10 +15,24 @@ import java.util.concurrent.CountDownLatch;
 public class CountDownLatchTest {
 
     public static void main(String[] args)throws Exception {
-//        test1();
-        test2();
+        //test1();
+        //test2();
+        testOOM();
 
+    }
 
+    /**
+     * @Description 描述：测试oom
+     * @Param
+     * @Returns
+     * @Author: youzhi.gao
+     * @Date: 2020-05-08 9:22
+     */
+    private static void testOOM() {
+        List<EmployeePlus> list = new ArrayList<EmployeePlus>();
+        while (true){
+            list.add(new EmployeePlus());
+        }
     }
 
     /**
