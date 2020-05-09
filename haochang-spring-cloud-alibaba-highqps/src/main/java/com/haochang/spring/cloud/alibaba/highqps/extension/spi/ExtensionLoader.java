@@ -4,8 +4,13 @@ import com.haochang.spring.cloud.alibaba.highqps.extension.annotation.SPI;
 import com.haochang.spring.cloud.alibaba.highqps.extension.utils.Holder;
 
 import java.lang.reflect.Method;
+import java.lang.reflect.Modifier;
 import java.util.concurrent.ConcurrentHashMap;
 import com.haochang.spring.cloud.alibaba.highqps.extension.utils.Compiler;
+import org.apache.ibatis.javassist.bytecode.stackmap.BasicBlock.Catch;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 /**
  * @description: 描述：利用spi技术进行加载扩展类
  * @author: youzhi.gao
@@ -20,6 +25,7 @@ public class ExtensionLoader<T> {
     private volatile Throwable createAdaptiveInstanceError;
     private volatile Class<?> cachedAdaptiveClass;
     private volatile Class<?> cachedAdaptiveExtensionClass;
+    private static final Logger logger = LoggerFactory.getLogger(ExtensionLoader.class);
 
     public ExtensionLoader(Class<?> type) {
         this.type = type;
@@ -61,10 +67,10 @@ public class ExtensionLoader<T> {
      * @Author: youzhi.gao
      * @Date: 2020-05-09 15:30
      */
-    public Object createAdaptiveExtension() {
+    public T createAdaptiveExtension() {
 
         try{
-            return this.injectExtension(this.getAdaptiveExtensionClass().newInstance());
+            return this.injectExtension((T) this.getAdaptiveExtensionClass().newInstance());
         }catch (Exception val2){
             throw new IllegalStateException("failed to create adaptive extension", val2);
         }
@@ -74,8 +80,35 @@ public class ExtensionLoader<T> {
     /**
      * @return
      */
-    private Object injectExtension(Object o) {
-        return null;
+    private T injectExtension(T instance) {
+
+        try {
+
+            if(this.objectFactory != null){
+                Method[] arr$ = instance.getClass().getMethods();
+                int len$ = arr$.length;
+                for (int i = 0; i < len$; i++) {
+                    Method method = arr$[i];
+                    if(method.getName().startsWith("set") && method.getParameters().length == 1 && Modifier.isPublic(method.getModifiers())){
+                        Class pt = method.getParameterTypes()[0];
+
+                        try{
+                            String property = method.getName().length() > 3 ? method.getName().substring(3,4).toLowerCase() + method.getName().substring(4) : "";
+                            Object object = this.objectFactory.getExtension(pt, property);
+                            if(null != object){
+                                method.invoke(instance, object);
+                            }
+                        } catch(Exception e){
+
+                        }
+                    }
+                }
+            }
+        }catch (Exception e){
+            logger.error("inject extension exception " + instance);
+        }
+
+        return instance;
     }
 
 
