@@ -10,6 +10,7 @@
         <relativePath>../haochang-spring-cloud-alibaba-dependencies/pom.xml</relativePath>
     </parent>
 
+    <groupId>com.haochang</groupId>
     <artifactId>haochang-spring-cloud-alibaba-highqps</artifactId>
     <packaging>jar</packaging>
 
@@ -130,6 +131,12 @@
             <version>4.1.0</version>
         </dependency>
         <!-- seckill End-->
+
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>dubbo</artifactId>
+            <version>2.6.4</version>
+        </dependency>
     </dependencies>
 
     <build>
