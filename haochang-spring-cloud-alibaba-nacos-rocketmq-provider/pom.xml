@@ -10,6 +10,7 @@
         <relativePath>../haochang-spring-cloud-alibaba-dependencies/pom.xml</relativePath>
     </parent>
 
+    <groupId>com.haochang</groupId>
     <artifactId>hao-chang-spring-cloud-alibaba-rocketmq-provider</artifactId>
     <packaging>jar</packaging>
 
