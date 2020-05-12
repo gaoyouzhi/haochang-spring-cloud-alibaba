@@ -5,7 +5,7 @@ package com.haochang.spring.cloud.alibaba.highqps.config;
 //import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
-@Configuration
+//@Configuration
 public class ZookeeperConfig {
 //    @Value("${zookeeper.lock-root}")
 //    private String lockRoot;
@@ -31,4 +31,7 @@ public class ZookeeperConfig {
 //        zkConfigBean.setLockAcquireTimeout(Integer.valueOf(lockAcquireTimeout));
 //        return zkConfigBean;
 //    }
+
+
+
 }

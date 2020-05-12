@@ -24,9 +24,7 @@ import javax.annotation.Resource;
 import java.util.Date;
 import java.util.List;
 
-/**
- * @author liushaoming
- */
+
 @Service
 public class SeckillServiceImpl implements SeckillService {
     private Logger logger = LoggerFactory.getLogger(this.getClass());
@@ -51,8 +49,8 @@ public class SeckillServiceImpl implements SeckillService {
 //    @Resource(name = "initJedisPool")
 //    private JedisPool jedisPool;
 
-    @Resource
-    private CuratorClientManager curatorClientManager;
+//    @Resource
+//    private CuratorClientManager curatorClientManager;
 
     private Object sharedObj = new Object();
 
